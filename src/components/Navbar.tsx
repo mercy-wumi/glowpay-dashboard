@@ -1,6 +1,8 @@
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { ThemeContext } from '../context/ThemeContext'
+import { TransactionContext } from '../context/TransactionContext'
 import { Theme, ThemeContextType } from '../@types/theme'
+import { SearchInputType } from '../@types/searchInput'
 
 import search from '../assets/images/search-normal.png'
 import searchDark from '../assets/images/searchDark.png'
@@ -16,8 +18,19 @@ import notificationDark from '../assets/images/notificationDark.png'
 const Navbar = () => {
     const { theme, changeTheme } = useContext(ThemeContext) as ThemeContextType;
 
+    const { handleChange } = useContext(TransactionContext) as SearchInputType;
+
     const handleThemeChange = (themeCol: String) => {
         changeTheme(themeCol as Theme);
+    }
+
+    const [hoverNoti, setHoverNoti] = useState(false)
+    const handleHover = () => {
+        setHoverNoti(true)
+    }
+
+    const handleRemoveHover = () => {
+        setHoverNoti(false)
     }
 
     return (
@@ -26,14 +39,14 @@ const Navbar = () => {
                 <h1 className="font-bold text-2xl">Dashboard</h1>
                 <div className={`${theme === 'light' ? 'bg-white' : 'darkModeSearch'} rounded-lg p-2 flex items-center flex-1 mx-36`}>
                     <img src={theme === 'light' ? search : searchDark} alt="search icon" className='mr-2' />
-                    <input type='text' placeholder='Search' className='bg-inherit w-full outline-none' />
+                    <input type='text' placeholder='Search Transaction History e.g. payment' className='bg-inherit w-full outline-none' onChange={handleChange} />
                 </div>
                 <div className='flex items-center'>
                     <div className={`${theme === 'light' ? 'bg-gray' : 'bg-darkNav'} flex rounded-full items-center mr-8`}>
                         <img src={sun} alt="light mode" onClick={() => handleThemeChange('light')} className={`${theme === 'light' ? 'bg-[#B55B52] rounded-full' : ''} cursor-pointer p-1`} />
                         <img src={theme === 'light' ? moon : moonDark} alt="dark mode" onClick={() => handleThemeChange('dark')} className={`${theme === 'dark' ? 'bg-[#B55B52] rounded-full' : ''} cursor-pointer p-1`} />
                     </div>
-                    <div className={`${theme === 'light' ? 'bg-gray' : 'bg-darkNav'} rounded-xl p-1 mr-8`}>
+                    <div className={`${theme === 'light' ? 'bg-gray' : 'bg-darkNav'} rounded-xl p-1 mr-8 cursor-pointer`} onMouseOver={handleHover} onMouseOut={handleRemoveHover}>
                         <img src={theme === 'light' ? notification : notificationDark} alt="notification bell" />
                     </div>
                     <div className='flex'>
@@ -44,6 +57,9 @@ const Navbar = () => {
                         </div>
                     </div>
                 </div>
+            </div>
+            <div className={`${hoverNoti ? 'block' : 'hidden'}`}>
+                <span className={`${theme === 'light' ? 'text-black bg-gray' : 'text-white bg-darkNav'} bg-inherit text-xs mt-1 fixed right-36 p-1 px-2 mb-2 rounded-xl`}>You have 0 notification</span>
             </div>
         </nav>
     )

@@ -1,13 +1,16 @@
 import { useContext } from 'react'
 import { ThemeContext } from '../context/ThemeContext'
 import { ThemeContextType } from '../@types/theme'
+import { history } from '../TransactionHistoryData'
 import { TransactionContext } from '../context/TransactionContext'
 import { SearchInputType, ITranHistory } from '../@types/searchInput'
 
-const History = () => {
+const TransactionHistory = () => {
     const { theme } = useContext(ThemeContext) as ThemeContextType
 
-    const { transHistory } = useContext(TransactionContext) as SearchInputType
+    const { getFilteredTransaction } = useContext(TransactionContext) as SearchInputType
+    console.log(getFilteredTransaction)
+
     return (
         <div className='mt-4'>
             <hr />
@@ -16,7 +19,7 @@ const History = () => {
                 <button className={`${theme === 'light' ? 'bg-lightRed' : 'bg-btn'} text-redBrown bg-lightRed p-2 font-semibold rounded-lg`}>Sell all</button>
             </div>
             <div>
-                {transHistory.map((trans: ITranHistory) => (
+                {getFilteredTransaction.map((trans: ITranHistory) => (
                     <div key={trans.id} className='flex justify-between items-center my-6 text-xs'>
                         <div className='flex'>
                             <img src={trans.img} alt="Transactions" />
@@ -36,4 +39,4 @@ const History = () => {
     )
 }
 
-export default History
+export default TransactionHistory

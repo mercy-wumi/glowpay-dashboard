@@ -52,7 +52,7 @@ const Card = () => {
     return (
         <div className='grid grid-cols-3 gap-8'>
             {cards.map(card => (
-                <div className={`${active === card.id && theme === 'dark' ? 'activeDark' : ''} ${active === card.id ? 'activeLight' : ''} ${theme === 'light' ? 'bg-white' : 'bg-iconDark text-white'} py-4 px-6 flex justify-between items-start rounded-[10px]`}>
+                <div key={card.id} className={`${active === card.id && theme === 'dark' ? 'activeDark' : ''} ${active === card.id ? 'activeLight' : ''} ${theme === 'light' ? 'bg-white' : 'bg-iconDark text-white'} py-4 px-6 flex justify-between items-start rounded-[10px]`}>
                     <div className='mr-12'>
                         <div className={`${theme === 'light' ? 'bg-lightIcon' : 'bg-darkIcon'} ${active === card.id ? 'bg-activeIcon' : ''} p-2 rounded-lg flex items-center w-fit`}>
                             <img src={theme === 'light' ? card.imgLight : card.img} alt="wallet icon" />
