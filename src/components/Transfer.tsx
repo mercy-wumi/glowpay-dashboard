@@ -1,47 +1,19 @@
-import { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { ThemeContext } from '../context/ThemeContext'
 import { ThemeContextType } from '../@types/theme'
 import profile from '../assets/images/profile.png'
 import next from '../assets/images/next.png'
 import nextBlack from '../assets/images/nextBlack.png'
 import { Pie, PieChart, Cell } from 'recharts'
+import { transferredTo, weeklyPie, monthlyPie } from '../GraphPieData'
 
-const transferredTo = [
-    {
-        name: 'Glow'
-    },
-    {
-        name: 'Amanda'
-    },
-    {
-        name: 'Jennifer'
-    },
-    {
-        name: 'Victoria'
-    },
-
-]
-const dataPie = [
-    {
-        name: 'Subscription',
-        value: 110
-    },
-    {
-        name: 'Food',
-        value: 100
-    },
-    {
-        name: 'Data',
-        value: 80
-    },
-    {
-        name: 'Other',
-        value: 90
-    },
-]
 const colors = ['#FCBEB6', '#FF968B', '#B55B52', '#EB996E']
 const Transfer = () => {
+    const [pieData, setPieData] = useState('weekly')
     const { theme } = useContext(ThemeContext) as ThemeContextType;
+    const handleChangePie = (e: React.ChangeEvent<HTMLSelectElement>) => {
+        setPieData(e.target.value)
+    }
 
     return (
         <div className='w-full mt-6 flex'>
@@ -74,17 +46,26 @@ const Transfer = () => {
                 <div className='flex justify-between items-center'>
                     <span className='text-2xl font-semibold'>Finances</span>
                     <div className='p-1 border-[1px] rounded-lg'>
-                        <select name="duration" id="duration" className={`${theme === 'light' ? 'text-black bg-white' : 'text-white bg-iconDark'} pr-3 m-1 outline-none`}>
+                        <select
+                            name="pieData"
+                            id="pieData"
+                            onChange={handleChangePie}
+                            className={`${theme === 'light' ? 'text-black bg-white' : 'text-white bg-iconDark'} pr-3 m-1 outline-none`}>
+                            <option value="weekly">Weekly</option>
                             <option value="monthly">Monthly</option>
-                            <option value="yeary">Yearly</option>
                         </select>
                     </div>
                 </div>
                 <div className='w-full margin-auto flex items-center mt-2 outline-none'>
                     <PieChart width={150} height={150}>
-                        <Pie data={dataPie} dataKey="value" nameKey="name" cx="50%" cy="50%" innerRadius={40} outerRadius={70} fill="#B55B52">
+                        <Pie data={pieData === 'weekly' ? weeklyPie : monthlyPie} dataKey="value" nameKey="name" cx="50%" cy="50%" innerRadius={40} outerRadius={70} fill="#B55B52">
                             {
-                                dataPie.map((entry, index) => (
+                                weeklyPie.map((entry, index) => (
+                                    <Cell key={`cell-${index}`} fill={colors[index]} />
+                                ))
+                            }
+                            {
+                                monthlyPie.map((entry, index) => (
                                     <Cell key={`cell-${index}`} fill={colors[index]} />
                                 ))
                             }

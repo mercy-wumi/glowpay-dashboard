@@ -2,7 +2,9 @@ import React from 'react'
 
 const ExtraMenu = () => {
     return (
-        <div>ExtraMenu</div>
+        <div className=''>
+
+        </div>
     )
 }
 

@@ -1,49 +1,16 @@
-import { useContext } from "react"
+import React, { useContext, useState } from "react"
 import { ThemeContext } from "../context/ThemeContext"
 import { ThemeContextType } from "../@types/theme"
 import { CartesianAxis, CartesianGrid, Line, LineChart, Tooltip, XAxis, YAxis } from "recharts"
-
-const data = [
-    {
-        name: 'Mon',
-        income: 3000,
-        expenses: 2800
-    },
-    {
-        name: 'Tue',
-        income: 3600,
-        expenses: 2600
-    },
-    {
-        name: 'Wed',
-        income: 2400,
-        expenses: 3000
-    },
-    {
-        name: 'Thu',
-        income: 3500,
-        expenses: 2200
-    },
-    {
-        name: 'Fri',
-        income: 2500,
-        expenses: 3400
-    },
-    {
-        name: 'Sat',
-        income: 4500,
-        expenses: 2500
-    },
-    {
-        name: 'Sun',
-        income: 4000,
-        expenses: 2000
-    },
-]
+import { weeklydata, monthlydata } from "../GraphPieData"
 
 const Graph = () => {
+    const [linegraph, setLinegraph] = useState('weekly')
     const { theme } = useContext(ThemeContext) as ThemeContextType;
 
+    const handleLinegraph = (e: React.ChangeEvent<HTMLSelectElement>) => {
+        setLinegraph(e.target.value)
+    }
     return (
         <div className={`${theme === 'light' ? 'text-black bg-white' : 'text-white bg-iconDark'} rounded-xl w-full px-6 py-8 mt-6`}>
             <div className='flex justify-between text-l'>
@@ -58,15 +25,20 @@ const Graph = () => {
                         <span>Expenses</span>
                     </div>
                     <div className='p-1 border-[1px] rounded-lg ml-8'>
-                        <select name="duration" id="duration" className={`${theme === 'light' ? 'text-black bg-white' : 'text-white bg-iconDark'} pr-3 m-1 outline-none`}>
+                        <select
+                            name="linegraph"
+                            id="linegraph"
+                            onChange={handleLinegraph}
+                            className={`${theme === 'light' ? 'text-black bg-white' : 'text-white bg-iconDark'} pr-3 m-1 outline-none`}
+                        >
+                            <option value="weekly">Weekly</option>
                             <option value="monthly">Monthly</option>
-                            <option value="yeary">Yearly</option>
                         </select>
                     </div>
                 </div>
             </div>
             <div className="mt-8 w-full m-auto">
-                <LineChart width={600} height={300} data={data}>
+                <LineChart width={600} height={300} data={linegraph === 'weekly' ? weeklydata : monthlydata}>
                     <Line type="monotone" dataKey="income" stroke="#B55B52" />
                     <Line type="monotone" dataKey="expenses" stroke="#6AD2FF" />
                     <CartesianGrid strokeDasharray="5 5" />
