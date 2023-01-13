@@ -22,7 +22,7 @@ const Transfer = () => {
                 <div className='flex items-center justify-between '>
                     <div className='flex items-center my-4'>
                         {transferredTo.map((person, index) => (
-                            <div key={index} className='text-xs mr-5 flex flex-col justify-center items-center'>
+                            <div key={index} className='text-xs mr-3 xl:mr-4 2xl:mr-5 flex flex-col justify-center items-center'>
                                 <img src={profile} alt=" profile Images" />
                                 <span className='mt-1'>{person.name}</span>
                             </div>
@@ -56,7 +56,7 @@ const Transfer = () => {
                         </select>
                     </div>
                 </div>
-                <div className='w-full margin-auto flex items-center mt-2 outline-none'>
+                <div className='w-full margin-auto flex items-center justify-center mt-2 outline-none'>
                     <PieChart width={150} height={150}>
                         <Pie data={pieData === 'weekly' ? weeklyPie : monthlyPie} dataKey="value" nameKey="name" cx="50%" cy="50%" innerRadius={40} outerRadius={70} fill="#B55B52">
                             {

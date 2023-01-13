@@ -1,3 +1,7 @@
+export type Props = {
+    children: React.ReactNode
+}
+
 export interface ITranHistory {
         id: number,
         img: string,
@@ -8,8 +12,10 @@ export interface ITranHistory {
 }
 
 export type SearchInputType = {
+    showAll: boolean;
     searchHistory: string;
     transHistory: ITranHistory[];
     getFilteredTransaction: ITranHistory[];
+    setShowAll: React.Dispatch<React.SetStateAction<boolean>>; 
     handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void
 }

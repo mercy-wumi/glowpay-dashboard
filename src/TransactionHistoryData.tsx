@@ -49,4 +49,20 @@ export const history = [
         amount: '-N50,000',
         transaction: 'Transfer'
     },
+    {
+        id: 7,
+        img: woman,
+        name: 'Starbucks',
+        date: '22 Jun, 9:30 PM',
+        amount: '-N50,000',
+        transaction: 'Transfer'
+    },
+    {
+        id: 8,
+        img: woman,
+        name: 'Starbucks',
+        date: '22 Jun, 9:30 PM',
+        amount: '-N50,000',
+        transaction: 'Transfer'
+    },
 ]

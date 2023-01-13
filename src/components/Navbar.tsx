@@ -3,6 +3,7 @@ import { ThemeContext } from '../context/ThemeContext'
 import { TransactionContext } from '../context/TransactionContext'
 import { Theme, ThemeContextType } from '../@types/theme'
 import { SearchInputType } from '../@types/searchInput'
+import ExtraMenu from './ExtraMenu'
 
 import search from '../assets/images/search-normal.png'
 import searchDark from '../assets/images/searchDark.png'
@@ -23,7 +24,7 @@ const Navbar = () => {
     const handleThemeChange = (themeCol: String) => {
         changeTheme(themeCol as Theme);
     }
-
+    const [menu, setMenu] = useState(false)
     const [hoverNoti, setHoverNoti] = useState(false)
     const handleHover = () => {
         setHoverNoti(true)
@@ -32,12 +33,15 @@ const Navbar = () => {
     const handleRemoveHover = () => {
         setHoverNoti(false)
     }
+    const handleShowMenu = () => {
+        setMenu(!menu)
+    }
 
     return (
         <nav>
             <div className="flex justify-between items-center">
                 <h1 className="font-bold text-2xl">Dashboard</h1>
-                <div className={`${theme === 'light' ? 'bg-white' : 'darkModeSearch'} rounded-lg p-2 flex items-center flex-1 mx-36`}>
+                <div className={`${theme === 'light' ? 'bg-white' : 'darkModeSearch'} rounded-lg p-2 flex items-center flex-1 mx-20 xl:mx-28`}>
                     <img src={theme === 'light' ? search : searchDark} alt="search icon" className='mr-2' />
                     <input type='text' placeholder='Search Transaction History e.g. payment' className='bg-inherit w-full outline-none' onChange={handleChange} />
                 </div>
@@ -53,13 +57,16 @@ const Navbar = () => {
                         <img src={profile} alt="profile picture" className='mr-4' />
                         <div className='flex items-center'>
                             <span className='font-semibold mr-2'>Glowree</span>
-                            <img src={theme === 'light' ? arrowDown : dropDown} alt="arrow" />
+                            <img onClick={handleShowMenu} src={theme === 'light' ? arrowDown : dropDown} alt="arrow" className='cursor-pointer' />
                         </div>
                     </div>
                 </div>
             </div>
             <div className={`${hoverNoti ? 'block' : 'hidden'}`}>
                 <span className={`${theme === 'light' ? 'text-black bg-gray' : 'text-white bg-darkNav'} bg-inherit text-xs mt-1 fixed right-36 p-1 px-2 mb-2 rounded-xl`}>You have 0 notification</span>
+            </div>
+            <div className={`${menu ? 'block' : 'hidden'}`}>
+                <ExtraMenu />
             </div>
         </nav>
     )

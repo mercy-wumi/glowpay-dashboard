@@ -23,40 +23,42 @@ const Sidebar = () => {
     const { theme } = useContext(ThemeContext) as ThemeContextType;
 
     return (
-        <nav className={`${theme === 'light' ? 'bg-white' : 'darkSidebar'} w-60 pt-10 pl-10 h-screen fixed`}>
+        <nav className={`${theme === 'light' ? 'bg-white' : 'darkSidebar'} w-60 pt-10 pl-10 h-screen fixed z-30`}>
             <img src={theme === 'light' ? glowpay : glowpayDark} alt="glowpay logo" />
-            <ul className="mt-10">
-                <li className={`${theme === 'light' ? 'text-redBrown' : 'text-brightRed'} flex mb-10`}>
-                    <img src={theme === 'light' ? dashboard : dashDark} alt="dashboard icon" className='mr-4' />
-                    Dashboard
-                </li>
-                <li className='flex mb-10'>
-                    <img src={theme === 'light' ? transaction : transDark} alt="dashboard icon" className='mr-4' />
-                    Transactions
-                </li>
-                <li className='flex mb-10'>
-                    <img src={theme === 'light' ? wallet : walletDark} alt="dashboard icon" className='mr-4' />
-                    Wallet
-                </li>
-                <li className='flex mb-10'>
-                    <img src={theme === 'light' ? statistics : staDark} alt="dashboard icon" className='mr-4' />
-                    Statistics
-                </li>
-                <li className='flex mb-10'>
-                    <img src={theme === 'light' ? sms : smsDark} alt="dashboard icon" className='mr-4' />
-                    Message
-                </li>
-            </ul>
-            <ul className="absolute bottom-10 mt-10">
-                <li className='flex mb-10'>
-                    <img src={theme === 'light' ? setting : settingDark} alt="dashboard icon" className='mr-4' />
-                    Setting
-                </li>
-                <li className='flex'>
-                    <img src={theme === 'light' ? logout : logoutDark} alt="dashboard icon" className='mr-4' />
-                    Logout
-                </li>
-            </ul>
+            <div className='flex flex-col justify-between h-full'>
+                <ul className="mt-10">
+                    <li className={`${theme === 'light' ? 'text-redBrown' : 'text-brightRed'} flex mb-10`}>
+                        <img src={theme === 'light' ? dashboard : dashDark} alt="dashboard icon" className='mr-4' />
+                        Dashboard
+                    </li>
+                    <li className='flex mb-10'>
+                        <img src={theme === 'light' ? transaction : transDark} alt="dashboard icon" className='mr-4' />
+                        Transactions
+                    </li>
+                    <li className='flex mb-10'>
+                        <img src={theme === 'light' ? wallet : walletDark} alt="dashboard icon" className='mr-4' />
+                        Wallet
+                    </li>
+                    <li className='flex mb-10'>
+                        <img src={theme === 'light' ? statistics : staDark} alt="dashboard icon" className='mr-4' />
+                        Statistics
+                    </li>
+                    <li className='flex mb-10'>
+                        <img src={theme === 'light' ? sms : smsDark} alt="dashboard icon" className='mr-4' />
+                        Message
+                    </li>
+                </ul>
+                <ul className='mb-10'>
+                    <li className='flex mb-10'>
+                        <img src={theme === 'light' ? setting : settingDark} alt="dashboard icon" className='mr-4' />
+                        Setting
+                    </li>
+                    <li className='flex'>
+                        <img src={theme === 'light' ? logout : logoutDark} alt="dashboard icon" className='mr-4' />
+                        Logout
+                    </li>
+                </ul>
+            </div>
         </nav>
     )
 }

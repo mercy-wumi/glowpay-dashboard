@@ -37,8 +37,8 @@ const Graph = () => {
                     </div>
                 </div>
             </div>
-            <div className="mt-8 w-full m-auto">
-                <LineChart width={600} height={300} data={linegraph === 'weekly' ? weeklydata : monthlydata}>
+            <div className="mt-8 w-full flex justify-center items-center">
+                <LineChart width={650} height={300} data={linegraph === 'weekly' ? weeklydata : monthlydata}>
                     <Line type="monotone" dataKey="income" stroke="#B55B52" />
                     <Line type="monotone" dataKey="expenses" stroke="#6AD2FF" />
                     <CartesianGrid strokeDasharray="5 5" />

@@ -13,12 +13,12 @@ import TransactionHistory from "./TransactionHistory"
 
 const MainPage = () => {
     const { theme } = useContext(ThemeContext) as ThemeContextType;
-    const { getFilteredTransaction, searchHistory } = useContext(TransactionContext) as SearchInputType;
+    const { getFilteredTransaction, searchHistory, showAll } = useContext(TransactionContext) as SearchInputType;
 
     return (
         <div className='flex pt-6'>
             <div className="w-2/3 mr-6">
-                {searchHistory.length > 0 && getFilteredTransaction.length > 0 ?
+                {(searchHistory.length > 0 && getFilteredTransaction.length > 0) || (showAll === true) ?
                     <TransactionHistory />
                     :
                     <>
