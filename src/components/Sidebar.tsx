@@ -24,36 +24,36 @@ const Sidebar = () => {
 
     return (
         <nav className={`${theme === 'light' ? 'bg-white' : 'darkSidebar'} w-60 pt-10 pl-10 h-screen fixed z-30`}>
-            <img src={theme === 'light' ? glowpay : glowpayDark} alt="glowpay logo" />
+            <a href='/'><img src={theme === 'light' ? glowpay : glowpayDark} alt="glowpay logo" /></a>
             <div className='flex flex-col justify-between h-full'>
                 <ul className="mt-10">
-                    <li className={`${theme === 'light' ? 'text-redBrown' : 'text-brightRed'} flex mb-10`}>
+                    <li className={`${theme === 'light' ? 'text-redBrown' : 'text-brightRed'} flex cursor-pointer mb-10`}>
                         <img src={theme === 'light' ? dashboard : dashDark} alt="dashboard icon" className='mr-4' />
                         Dashboard
                     </li>
-                    <li className='flex mb-10'>
+                    <li className={`${theme === 'light' ? 'hover:text-redBrown' : 'hover:text-brightRed'} flex cursor-pointer mb-10`}>
                         <img src={theme === 'light' ? transaction : transDark} alt="dashboard icon" className='mr-4' />
                         Transactions
                     </li>
-                    <li className='flex mb-10'>
+                    <li className={`${theme === 'light' ? 'hover:text-redBrown' : 'hover:text-brightRed'} flex cursor-pointer mb-10`}>
                         <img src={theme === 'light' ? wallet : walletDark} alt="dashboard icon" className='mr-4' />
                         Wallet
                     </li>
-                    <li className='flex mb-10'>
+                    <li className={`${theme === 'light' ? 'hover:text-redBrown' : 'hover:text-brightRed'} flex cursor-pointer mb-10`}>
                         <img src={theme === 'light' ? statistics : staDark} alt="dashboard icon" className='mr-4' />
                         Statistics
                     </li>
-                    <li className='flex mb-10'>
+                    <li className={`${theme === 'light' ? 'hover:text-redBrown' : 'hover:text-brightRed'} flex cursor-pointer mb-10`}>
                         <img src={theme === 'light' ? sms : smsDark} alt="dashboard icon" className='mr-4' />
                         Message
                     </li>
                 </ul>
                 <ul className='mb-10'>
-                    <li className='flex mb-10'>
+                    <li className={`${theme === 'light' ? 'hover:text-redBrown' : 'hover:text-brightRed'} flex cursor-pointer mb-10`}>
                         <img src={theme === 'light' ? setting : settingDark} alt="dashboard icon" className='mr-4' />
                         Setting
                     </li>
-                    <li className='flex'>
+                    <li className={`${theme === 'light' ? 'hover:text-redBrown' : 'hover:text-brightRed'} flex cursor-pointer`}>
                         <img src={theme === 'light' ? logout : logoutDark} alt="dashboard icon" className='mr-4' />
                         Logout
                     </li>

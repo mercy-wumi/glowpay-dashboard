@@ -14,6 +14,13 @@ const Transfer = () => {
     const handleChangePie = (e: React.ChangeEvent<HTMLSelectElement>) => {
         setPieData(e.target.value)
     }
+    let transferPerson = 0, loadmore = 4;
+
+    const handleLoadMore = () => {
+        transferPerson += 4
+        loadmore += 4
+        console.log('load more')
+    }
 
     return (
         <div className='w-full mt-6 flex'>
@@ -21,7 +28,7 @@ const Transfer = () => {
                 <span className='text-2xl font-semibold mb-4'>Quick Transfer</span>
                 <div className='flex items-center justify-between '>
                     <div className='flex items-center my-4'>
-                        {transferredTo.map((person, index) => (
+                        {transferredTo.slice(transferPerson, loadmore).map((person, index) => (
                             <div key={index} className='text-xs mr-3 xl:mr-4 2xl:mr-5 flex flex-col justify-center items-center'>
                                 <img src={profile} alt=" profile Images" />
                                 <span className='mt-1'>{person.name}</span>
@@ -32,7 +39,7 @@ const Transfer = () => {
                             <span className='mt-2'>Add New</span>
                         </div>
                     </div>
-                    <img src={theme === 'light' ? nextBlack : next} alt="next" />
+                    <img src={theme === 'light' ? nextBlack : next} alt="next" onClick={handleLoadMore} className='cursor-pointer' />
                 </div>
                 <div className=''>
                     <span className='font-medium'>Provide amount</span>

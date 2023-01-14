@@ -89,6 +89,18 @@ export const transferredTo = [
     {
         name: 'Victoria'
     },
+    {
+        name: 'Glory'
+    },
+    {
+        name: 'Amaka'
+    },
+    {
+        name: 'Jenny'
+    },
+    {
+        name: 'Victor'
+    },
 
 ]
 export const weeklyPie = [

@@ -52,15 +52,15 @@ const Card = () => {
     return (
         <div className='grid grid-cols-3 gap-8'>
             {cards.map(card => (
-                <div key={card.id} className={`${active === card.id && theme === 'dark' ? 'activeDark' : ''} ${active === card.id ? 'activeLight' : ''} ${theme === 'light' ? 'bg-white' : 'bg-iconDark text-white'} py-4 px-6 flex justify-between items-start rounded-[10px]`}>
-                    <div className='mr-12'>
+                <div key={card.id} className={`${active === card.id && theme === 'dark' ? 'activeDark' : ''} ${active === card.id ? 'activeLight' : ''} ${theme === 'light' ? 'bg-white' : 'bg-iconDark text-white'} py-4 px-6 rounded-[10px]`}>
+                    <div className='flex justify-between items-center'>
                         <div className={`${theme === 'light' ? 'bg-lightIcon' : 'bg-darkIcon'} ${active === card.id ? 'bg-activeIcon' : ''} p-2 rounded-lg flex items-center w-fit`}>
                             <img src={theme === 'light' ? card.imgLight : card.img} alt="wallet icon" />
                         </div>
-                        <p className='text-sm mt-4 mb-2'>{card.name}</p>
-                        <span className='text-2xl font-bold'>{card.amount}</span>
+                        {active === card.id || theme === 'dark' ? <img className='next' src={next} alt="next icon" /> : <img className='next' src={nextBlack} alt="next icon" />}
                     </div>
-                    {active === card.id || theme === 'dark' ? <img src={next} alt="next icon" /> : <img src={nextBlack} alt="next icon" />}
+                    <p className='text-sm mt-4 mb-2'>{card.name}</p>
+                    <span className='text-2xl font-bold'>{card.amount}</span>
                 </div>
             ))}
 
