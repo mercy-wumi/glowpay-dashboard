@@ -16,9 +16,23 @@ const TransactionContextProvider: React.FC<Props> = ({ children }) => {
         console.log(searchHistory)
     }
 
+    const handleAllHistory = () => {
+        setShowAll(true)
+    }
+
+    const handleCloseHistory = () => {
+        setShowAll(false)
+    }
+
     return (
         <TransactionContext.Provider value={{
-            showAll, setShowAll, transHistory, getFilteredTransaction, handleChange, searchHistory
+            showAll,
+            transHistory,
+            getFilteredTransaction,
+            handleChange,
+            searchHistory,
+            handleCloseHistory,
+            handleAllHistory
         }}>
             {children}
         </TransactionContext.Provider>

@@ -1,8 +1,8 @@
-import { useContext, useState } from 'react'
+import { useContext, useState, useRef, useEffect } from 'react'
 import { ThemeContext } from '../context/ThemeContext'
 import { TransactionContext } from '../context/TransactionContext'
 import { Theme, ThemeContextType } from '../@types/theme'
-import { SearchInputType } from '../@types/searchInput'
+import { SearchInputType, OpenProps } from '../@types/searchInput'
 import ExtraMenu from './ExtraMenu'
 
 import search from '../assets/images/search-normal.png'
@@ -16,7 +16,7 @@ import profile from '../assets/images/profile.png'
 import notification from '../assets/images/notification.png'
 import notificationDark from '../assets/images/notificationDark.png'
 
-const Navbar = () => {
+const Navbar: React.FC<OpenProps> = () => {
     const { theme, changeTheme } = useContext(ThemeContext) as ThemeContextType;
 
     const { handleChange } = useContext(TransactionContext) as SearchInputType;
@@ -24,11 +24,25 @@ const Navbar = () => {
     const handleThemeChange = (themeCol: String) => {
         changeTheme(themeCol as Theme);
     }
+    const menuShow = useRef<HTMLDivElement>(null)
+    const iconRef = useRef<HTMLDivElement>(null)
     const [menu, setMenu] = useState(false)
     const [hoverNoti, setHoverNoti] = useState(false)
     const handleHover = () => {
         setHoverNoti(true)
     }
+
+    useEffect(() => {
+        let handler = (e: any) => {
+            if (menuShow.current && !menuShow.current.contains(e.target) && !iconRef.current?.contains(e.target)) {
+                setMenu(false)
+            }
+        }
+        document.addEventListener('mousedown', handler)
+        return () => {
+            document.removeEventListener('mousedown', handler)
+        }
+    })
 
     const handleRemoveHover = () => {
         setHoverNoti(false)
@@ -53,7 +67,7 @@ const Navbar = () => {
                     <div className={`${theme === 'light' ? 'bg-gray' : 'bg-darkNav'} rounded-xl p-1 mr-8 cursor-pointer`} onMouseOver={handleHover} onMouseOut={handleRemoveHover}>
                         <img src={theme === 'light' ? notification : notificationDark} alt="notification bell" />
                     </div>
-                    <div className='flex'>
+                    <div className='flex' ref={iconRef}>
                         <img src={profile} alt="profile picture" className='mr-4' />
                         <div className='flex items-center'>
                             <span className='font-semibold mr-2'>Glowree</span>
@@ -66,7 +80,7 @@ const Navbar = () => {
                 <span className={`${theme === 'light' ? 'text-black bg-gray' : 'text-white bg-darkNav'} bg-inherit text-xs mt-1 fixed right-36 p-1 px-2 mb-2 rounded-xl`}>You have 0 notification</span>
             </div>
             <div className={`${menu ? 'block' : 'hidden'}`}>
-                <ExtraMenu />
+                <ExtraMenu menu={menu} setMenu={setMenu} menuShow={menuShow} />
             </div>
         </nav>
     )

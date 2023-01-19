@@ -8,15 +8,10 @@ import { SearchInputType, ITranHistory } from '../@types/searchInput'
 const TransactionHistory = () => {
     const { theme } = useContext(ThemeContext) as ThemeContextType
 
-    const { getFilteredTransaction, setShowAll } = useContext(TransactionContext) as SearchInputType
-
-    const handleCloseHistory = () => {
-        setShowAll(false)
-    }
+    const { getFilteredTransaction, handleCloseHistory } = useContext(TransactionContext) as SearchInputType
 
     return (
         <div className='mt-4'>
-            <hr />
             <div className='flex justify-between items-center mt-4'>
                 <span className='font-semibold text-xl'>Transaction History</span>
                 <button

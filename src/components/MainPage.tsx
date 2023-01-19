@@ -30,6 +30,7 @@ const MainPage = () => {
             </div>
             <div className={`${theme === 'light' ? 'bg-white text-black' : 'bg-iconDark text-white'} w-1/3 rounded-xl px-6 py-8`}>
                 <MyCards />
+                <hr className={`${theme === 'light' ? 'text-rule' : 'text-ruleDark'} my-4 `} />
                 <History />
             </div>
         </div>

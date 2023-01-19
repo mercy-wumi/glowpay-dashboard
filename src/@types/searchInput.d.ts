@@ -1,6 +1,14 @@
 export type Props = {
     children: React.ReactNode
 }
+export type MenuProps = {
+    menu: boolean,
+    setMenu: React.Dispatch<React.SetStateAction<boolean>>,
+    menuShow: RefObject<HTMLDivElement>,
+}
+export type OpenProps = {
+    iconRef: RefObject<HTMLDivElement>
+}
 
 export interface ITranHistory {
         id: number,
@@ -16,6 +24,7 @@ export type SearchInputType = {
     searchHistory: string;
     transHistory: ITranHistory[];
     getFilteredTransaction: ITranHistory[];
-    setShowAll: React.Dispatch<React.SetStateAction<boolean>>; 
-    handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+    handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    handleCloseHistory: () => void;
+    handleAllHistory: () => void;
 }

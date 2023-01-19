@@ -34,6 +34,6 @@ body {
     background: #C7584D !important;
 }
 
-.activeDark:hover .next {
-    transform: scale(0.4) !important;
+#hoverArrow:hover .next {
+    transform: scale(0.6) !important;
 }

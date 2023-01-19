@@ -21,6 +21,8 @@ module.exports = {
         borderLight: 'rgba(26, 26, 26, 0.5)',
         btn: 'rgba(255, 255, 255, 0.1)',
         lightIcon: 'rgba(181, 91, 82, 0.15)',
+        rule: 'rgba(26, 26, 26, 0.1)',
+        ruleDark: 'rgba(255, 255, 255, 0.08)',
         darkIcon: 'rgba(255, 255, 255, 0.15)',
         activeIcon: 'rgba(255, 255, 255, 0.12)',
         iconDark: '#262424',
