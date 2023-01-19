@@ -6,9 +6,9 @@ export type MenuProps = {
     setMenu: React.Dispatch<React.SetStateAction<boolean>>,
     menuShow: RefObject<HTMLDivElement>,
 }
-export type OpenProps = {
-    iconRef: RefObject<HTMLDivElement>
-}
+// export type OpenProps = {
+//     iconRef: RefObject<HTMLDivElement>
+// }
 
 export interface ITranHistory {
         id: number,

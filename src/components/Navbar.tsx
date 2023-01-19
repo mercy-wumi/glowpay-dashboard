@@ -2,7 +2,7 @@ import { useContext, useState, useRef, useEffect } from 'react'
 import { ThemeContext } from '../context/ThemeContext'
 import { TransactionContext } from '../context/TransactionContext'
 import { Theme, ThemeContextType } from '../@types/theme'
-import { SearchInputType, OpenProps } from '../@types/searchInput'
+import { SearchInputType } from '../@types/searchInput'
 import ExtraMenu from './ExtraMenu'
 
 import search from '../assets/images/search-normal.png'
@@ -16,7 +16,7 @@ import profile from '../assets/images/profile.png'
 import notification from '../assets/images/notification.png'
 import notificationDark from '../assets/images/notificationDark.png'
 
-const Navbar: React.FC<OpenProps> = () => {
+const Navbar = () => {
     const { theme, changeTheme } = useContext(ThemeContext) as ThemeContextType;
 
     const { handleChange } = useContext(TransactionContext) as SearchInputType;
