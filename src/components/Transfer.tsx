@@ -14,12 +14,14 @@ const Transfer = () => {
     const handleChangePie = (e: React.ChangeEvent<HTMLSelectElement>) => {
         setPieData(e.target.value)
     }
-    let transferPerson = 0, loadmore = 4;
+    const [loadmore, setLoadmore] = useState(4)
+    const [transferPerson, setTransferPerson] = useState(0)
 
     const handleLoadMore = () => {
-        transferPerson += 4
-        loadmore += 4
-        console.log('load more')
+        if (loadmore < transferredTo.length) {
+            setTransferPerson(transferPerson + 4)
+            setLoadmore(loadmore + 4)
+        }
     }
 
     return (

@@ -90,10 +90,10 @@ export const transferredTo = [
         name: 'Victoria'
     },
     {
-        name: 'Glory'
+        name: 'Vicky'
     },
     {
-        name: 'Amaka'
+        name: 'Ameka'
     },
     {
         name: 'Jenny'
