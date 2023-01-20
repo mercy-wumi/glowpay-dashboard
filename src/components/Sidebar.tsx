@@ -23,7 +23,7 @@ const Sidebar = () => {
     const { theme } = useContext(ThemeContext) as ThemeContextType;
 
     return (
-        <nav className={`${theme === 'light' ? 'bg-white' : 'darkSidebar'} w-60 pt-10 pl-10 h-screen fixed z-30`}>
+        <div className={`${theme === 'light' ? 'bg-white' : 'darkSidebar'} w-60 pt-10 pl-10 h-screen fixed z-30`}>
             <a href='/'><img src={theme === 'light' ? glowpay : glowpayDark} alt="glowpay logo" /></a>
             <div className='flex flex-col justify-between h-full'>
                 <ul className="mt-10">
@@ -59,7 +59,7 @@ const Sidebar = () => {
                     </li>
                 </ul>
             </div>
-        </nav>
+        </div>
     )
 }
 
