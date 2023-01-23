@@ -9,7 +9,7 @@ const Dashboard = () => {
     const { theme } = useContext(ThemeContext) as ThemeContextType;
 
     return (
-        <div className={`${theme === 'light' ? 'lightBg' : 'darkBg'} w-full min-h-screen py-9 px-8 ml-60`}>
+        <div className={`${theme === 'light' ? 'lightBg' : 'darkBg'} min-h-screen py-9 px-8 ml-60`}>
             <Navbar />
             <MainPage />
         </div>
