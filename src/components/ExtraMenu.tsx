@@ -18,7 +18,7 @@ const ExtraMenu: React.FC<MenuProps> = ({ menu, setMenu, menuShow }) => {
     window.addEventListener('scroll', hideMenu)
 
     return (
-        <div ref={menuShow} className={`${menu ? 'block' : 'hidden'} ${theme === 'light' ? 'bg-gray' : 'bg-darkNav'} w-[150px] z-50 fixed right-4 mt-2 rounded-xl p-2`}>
+        <div ref={menuShow} className={`${menu ? 'block' : 'hidden'} ${theme === 'light' ? 'bg-gray' : 'bg-darkNav'} w-[150px] z-50 mt-2 rounded-xl p-2`}>
             <ul className=''>
                 <li className={style.menu}>Profile</li>
                 <li className={style.menu}>Logout</li>

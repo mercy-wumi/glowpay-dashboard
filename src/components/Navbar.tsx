@@ -52,7 +52,7 @@ const Navbar = () => {
     }
 
     return (
-        <nav>
+        <nav className='relative'>
             <div className="flex justify-between items-center">
                 <h1 className="font-bold text-2xl">Dashboard</h1>
                 <div className={`${theme === 'light' ? 'bg-white' : 'darkModeSearch'} rounded-lg p-2 flex items-center flex-1 mx-20 xl:mx-28`}>
@@ -76,10 +76,10 @@ const Navbar = () => {
                     </div>
                 </div>
             </div>
-            <div className={`${hoverNoti ? 'block' : 'hidden'}`}>
-                <span className={`${theme === 'light' ? 'text-black bg-gray' : 'text-white bg-darkNav'} bg-inherit text-xs mt-1 fixed right-36 p-1 px-2 mb-2 rounded-xl`}>You have 0 notification</span>
+            <div className={`${hoverNoti ? 'block' : 'hidden'} absolute right-28`}>
+                <span className={`${theme === 'light' ? 'text-black bg-gray' : 'text-white bg-darkNav'} bg-inherit text-xs mt-1  p-1 px-2 mb-2 rounded-xl`}>You have 0 notification</span>
             </div>
-            <div className={`${menu ? 'block' : 'hidden'}`}>
+            <div className={`${menu ? 'block' : 'hidden'} absolute right-0`}>
                 <ExtraMenu menu={menu} setMenu={setMenu} menuShow={menuShow} />
             </div>
         </nav>

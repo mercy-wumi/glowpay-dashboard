@@ -10,7 +10,7 @@ const DashPage = () => {
 
     return (
         <div className={`${theme === 'light' ? 'bg-white' : 'bg-mainBlack'} lg:flex hidden`}>
-            <div className='max-w-[1400px] mx-auto'>
+            <div className='w-full 2xl:max-w-[1400px] 2xl:mx-auto'>
                 <Sidebar />
                 <Dashboard />
             </div>
