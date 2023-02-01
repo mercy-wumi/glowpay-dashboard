@@ -32,7 +32,7 @@ const Transfer = () => {
                     <div className='flex items-center my-4'>
                         {transferredTo.slice(transferPerson, loadmore).map((person, index) => (
                             <div key={index} className='text-xs mr-3 xl:mr-4 2xl:mr-5 flex flex-col justify-center items-center'>
-                                <img src={profile} alt=" profile Images" />
+                                <img src={person.img} alt=" profile Images" />
                                 <span className='mt-1'>{person.name}</span>
                             </div>
                         ))}

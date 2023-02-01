@@ -1,9 +1,14 @@
 import woman from './assets/images/woman.png'
+import apple from './assets/images/apple.png'
+import netflix from './assets/images/netflix.png'
+import nicky from './assets/images/nicky.png'
+import youtube from './assets/images/youtube.png'
+import starbucks from './assets/images/starbucks.png'
 
 export const history = [
     {
         id: 1,
-        img: woman,
+        img: starbucks,
         name: 'Starbucks',
         date: '22 Jun, 9:30 PM',
         amount: '-N50,000',
@@ -11,58 +16,58 @@ export const history = [
     },
     {
         id: 2,
-        img: woman,
-        name: 'Starbucks',
+        img: netflix,
+        name: 'Netflix',
         date: '22 Jun, 9:30 PM',
-        amount: '-N50,000',
+        amount: '-N5,000',
         transaction: 'Subscription'
     },
     {
         id: 3,
-        img: woman,
-        name: 'Starbucks',
+        img: apple,
+        name: 'Apple',
         date: '22 Jun, 9:30 PM',
-        amount: '-N50,000',
+        amount: '-N500',
         transaction: 'Subscription'
     },
     {
         id: 4,
         img: woman,
-        name: 'Starbucks',
+        name: 'Nicky Nicky',
         date: '22 Jun, 9:30 PM',
-        amount: '-N50,000',
+        amount: '+N300',
         transaction: 'Subscription'
     },
     {
         id: 5,
-        img: woman,
-        name: 'Starbucks',
+        img: youtube,
+        name: 'YouTube Music',
         date: '22 Jun, 9:30 PM',
-        amount: '-N50,000',
+        amount: '-N4,000',
         transaction: 'Subscription'
     },
     {
         id: 6,
-        img: woman,
+        img: nicky,
         name: 'Starbucks',
         date: '22 Jun, 9:30 PM',
-        amount: '-N50,000',
+        amount: '+N4,200',
         transaction: 'Transfer'
     },
     {
         id: 7,
-        img: woman,
+        img: starbucks,
         name: 'Starbucks',
         date: '22 Jun, 9:30 PM',
         amount: '-N50,000',
-        transaction: 'Transfer'
+        transaction: 'Payment'
     },
     {
         id: 8,
-        img: woman,
-        name: 'Starbucks',
+        img: apple,
+        name: 'Apple',
         date: '22 Jun, 9:30 PM',
-        amount: '-N50,000',
-        transaction: 'Transfer'
+        amount: '-N500',
+        transaction: 'Subscription'
     },
 ]

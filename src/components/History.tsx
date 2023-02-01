@@ -13,7 +13,7 @@ const History = () => {
         <div className='mt-4'>
             <div className='flex justify-between items-center mt-4'>
                 <span className='font-semibold text-xl'>Transaction History</span>
-                <button className={`${theme === 'light' ? 'bg-lightRed' : 'bg-btn'} text-redBrown bg-lightRed p-2 font-semibold rounded-lg`} onClick={handleAllHistory}>Sell all</button>
+                <button className={`${theme === 'light' ? 'bg-lightRed' : 'bg-btn'} text-redBrown bg-lightRed p-2 font-semibold rounded-lg`} onClick={handleAllHistory}>See all</button>
             </div>
             <div>
                 {transHistory.slice(0, 6).map((trans: ITranHistory) => (
@@ -26,7 +26,7 @@ const History = () => {
                             </div>
                         </div>
                         <div className='flex flex-col text-right'>
-                            <span className='font-semibold text-redBrown text-sm  mb-1'>{trans.amount}</span>
+                            <span className={`${trans.id === 4 || trans.id === 6 ? '' : 'text-redBrown'} font-bold text-sm mb-1`}>{trans.amount}</span>
                             <span>{trans.transaction}</span>
                         </div>
                     </div>

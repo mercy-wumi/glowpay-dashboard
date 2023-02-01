@@ -13,7 +13,6 @@ const TransactionContextProvider: React.FC<Props> = ({ children }) => {
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setSearchHistory(e.target.value)
-        console.log(searchHistory)
     }
 
     const handleAllHistory = () => {
@@ -22,6 +21,7 @@ const TransactionContextProvider: React.FC<Props> = ({ children }) => {
 
     const handleCloseHistory = () => {
         setShowAll(false)
+        setSearchHistory('')
     }
 
     return (

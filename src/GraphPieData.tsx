@@ -1,3 +1,8 @@
+import Amanda from './assets/images/Amanda.png'
+import Glow from './assets/images/Glow.png'
+import Victoria from './assets/images/Victoria.png'
+import Jennifer from './assets/images/Jennifer.png'
+
 export const weeklydata = [
     {
         name: 'Mon',
@@ -78,28 +83,36 @@ export const monthlydata = [
 
 export const transferredTo = [
     {
-        name: 'Glow'
+        name: 'Glow',
+        img: Glow
     },
     {
-        name: 'Amanda'
+        name: 'Amanda',
+        img: Amanda
     },
     {
-        name: 'Jennifer'
+        name: 'Jennifer',
+        img: Jennifer
     },
     {
-        name: 'Victoria'
+        name: 'Victoria',
+        img: Victoria
     },
     {
-        name: 'Vicky'
+        name: 'Vicky',
+        img: Victoria
     },
     {
-        name: 'Ameka'
+        name: 'Ameka',
+        img: Jennifer
     },
     {
-        name: 'Jenny'
+        name: 'Jenny',
+        img: Glow
     },
     {
-        name: 'Victor'
+        name: 'Victor',
+        img: Amanda
     },
 
 ]

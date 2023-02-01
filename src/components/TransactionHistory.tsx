@@ -31,7 +31,7 @@ const TransactionHistory = () => {
                             </div>
                         </div>
                         <div className='flex flex-col text-right'>
-                            <span className='font-semibold text-redBrown text-sm  mb-1'>{trans.amount}</span>
+                            <span className={`${trans.id === 4 || trans.id === 6 ? '' : 'text-redBrown'} font-bold text-sm mb-1`}>{trans.amount}</span>
                             <span>{trans.transaction}</span>
                         </div>
                     </div>

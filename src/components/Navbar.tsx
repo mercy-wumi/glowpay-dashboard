@@ -19,7 +19,7 @@ import notificationDark from '../assets/images/notificationDark.png'
 const Navbar = () => {
     const { theme, changeTheme } = useContext(ThemeContext) as ThemeContextType;
 
-    const { handleChange } = useContext(TransactionContext) as SearchInputType;
+    const { handleChange, searchHistory } = useContext(TransactionContext) as SearchInputType;
 
     const handleThemeChange = (themeCol: String) => {
         changeTheme(themeCol as Theme);
@@ -57,7 +57,7 @@ const Navbar = () => {
                 <h1 className="font-bold text-2xl">Dashboard</h1>
                 <div className={`${theme === 'light' ? 'bg-white' : 'darkModeSearch'} rounded-lg p-2 flex items-center flex-1 mx-20 xl:mx-28`}>
                     <img src={theme === 'light' ? search : searchDark} alt="search icon" className='mr-2' />
-                    <input type='text' placeholder='Search Transaction History e.g. payment' className='bg-inherit w-full outline-none' onChange={handleChange} />
+                    <input type='text' placeholder='Search Transaction History e.g. payment' className='bg-inherit w-full outline-none' onChange={handleChange} value={searchHistory} />
                 </div>
                 <div className='flex items-center'>
                     <div className={`${theme === 'light' ? 'bg-gray' : 'bg-darkNav'} flex rounded-full items-center mr-8`}>
@@ -69,9 +69,9 @@ const Navbar = () => {
                     </div>
                     <div className='flex' ref={iconRef}>
                         <img src={profile} alt="profile picture" className='mr-4' />
-                        <div className='flex items-center'>
+                        <div className='flex items-center cursor-pointer' onClick={handleShowMenu}>
                             <span className='font-semibold mr-2'>Glowree</span>
-                            <img onClick={handleShowMenu} src={theme === 'light' ? arrowDown : dropDown} alt="arrow" className='cursor-pointer' />
+                            <img src={theme === 'light' ? arrowDown : dropDown} alt="arrow" />
                         </div>
                     </div>
                 </div>
